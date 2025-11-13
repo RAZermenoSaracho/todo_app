@@ -1,111 +1,122 @@
-# To Do App (Tkinter + PostgreSQL)
+# ✔️ To-Do App (Tkinter + PostgreSQL)
 
-Aplicación de lista de tareas con interfaz gráfica construida en Python usando Tkinter y una base de datos PostgreSQL. Permite agregar, eliminar y marcar tareas como completadas.
-
----
-
-## Características
-
-- Interfaz sencilla e intuitiva con Tkinter
-- Conexión a base de datos PostgreSQL
-- Persistencia de datos
-- Separación clara entre GUI, lógica y base de datos
+A desktop To-Do application built with **Python**, featuring a graphical user interface using **Tkinter** and persistent storage powered by **PostgreSQL**.  
+The project demonstrates clean separation between GUI, business logic, and database operations.
 
 ---
 
-## Requisitos
+## 🔧 Features
 
-- Python 3.8 o superior
-- PostgreSQL instalado y funcionando
+- Simple and intuitive graphical interface (Tkinter)
+- PostgreSQL-backed persistence layer
+- Add, complete, and delete tasks
+- Modular architecture (GUI, model, DB connections)
+- Automatic database and table initialization
 
 ---
 
-## Instalación
+## 📦 Requirements
 
-1. **Clona el repositorio**
+- Python **3.8+**
+- PostgreSQL installed and running locally
+
+---
+
+## 🛠 Installation
+
+1. **Clone the repository**
 
 ```bash
-git clone https://github.com/tuusuario/todo_app.git
+git clone https://github.com/YOUR-USER/todo_app.git
 cd todo_app
 ```
 
-2. **Instala las dependencias**
+2. **Install dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-3. **Configura la conexión a tu base de datos**
+3. **Configure the database connection**
 
-Copia el archivo de configuración de ejemplo:
+Copy the example configuration file:
 
 ```bash
 cp config/config_example.json config/config.json
 ```
 
-Edita `config/config.json` con los datos de acceso a tu base de datos PostgreSQL:
+Edit `config/config.json` with your PostgreSQL credentials:
 
 ```json
 {
   "DB_NAME": "todo_app_db",
-  "DB_USER": "tu_usuario",
-  "DB_PASSWORD": "tu_contraseña",
+  "DB_USER": "your_user",
+  "DB_PASSWORD": "your_password",
   "DB_HOST": "localhost",
   "DB_PORT": 5432
 }
 ```
 
-4. **Crea la base de datos en PostgreSQL** (opcional, el sistema puede crearla por ti).
+4. (Optional) **Create the PostgreSQL database manually**  
+If you skip this step, the initialization script will handle it for you.
 
 ---
 
-## Inicialización del proyecto
+## 🗄️ Database Initialization
 
-Antes de ejecutar la aplicación por primera vez, asegúrate de que la base de datos y la tabla estén listas:
+Before running the GUI for the first time, initialize the database and required tables:
 
 ```bash
 python __init__.py
 ```
 
-Este script:
-- Verifica si la base de datos existe y la crea si no está presente.
-- Crea la tabla `tasks` en la base de datos si no existe.
+This script will:
+
+- Check if the database exists (and create it if missing)
+- Create the `tasks` table if it does not exist
 
 ---
 
-## Ejecución
+## ▶️ Running the Application
 
 ```bash
 python main.py
 ```
 
-Al iniciarse la aplicación, se conectará a la base de datos `todo_app_db` y mostrará la ventana principal.
+The application will connect to your PostgreSQL instance and launch the Tkinter window with your To-Do list.
 
 ---
 
-## Estructura del proyecto
+## 📁 Project Structure
 
 ```
 todo_app/
 │
-├── main.py                   # Punto de entrada
-├── __init__.py               # Inicializador de base de datos y tabla
+├── main.py                   # Application entry point
+├── __init__.py               # DB + table initialization script
 ├── requirements.txt
 ├── config/
-│   ├── config.json           # Archivo de configuración de conexión (privado)
-│   └── config_example.json   # Archivo de ejemplo
+│   ├── config.json           # Database connection configuration
+│   └── config_example.json   # Example config
 ├── db/
-│   └── connection.py         # Conexión a PostgreSQL
+│   └── connection.py         # PostgreSQL connection logic
 ├── models/
-│   └── task.py               # Modelo de datos
+│   └── task.py               # Task model
 ├── gui/
-│   └── app_window.py         # Interfaz gráfica
+│   └── app_window.py         # Tkinter GUI implementation
 ```
 
 ---
 
-## Licencia
+## 📘 Notes
 
-Este proyecto es de código abierto y puedes modificarlo libremente según tus necesidades.
+- Tkinter is used for the GUI layer.
+- PostgreSQL is used instead of SQLite to simulate a real production-like environment.
+- This app can be packaged into an executable using *PyInstaller* for distribution.
 
 ---
+
+## 📄 License
+
+This project is open-source.  
+Feel free to modify or use it according to your needs.
